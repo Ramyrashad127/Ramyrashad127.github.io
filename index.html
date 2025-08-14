@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Starter HTML Page</title>
+  <meta name="description" content="A clean, single-file HTML starter you can customize." />
+  <style>
+    /* --- Design tokens --- */
+    :root{
+      --bg: #0b1020;
+      --panel: #121a33;
+      --text: #e8ecf1;
+      --muted: #a9b2c6;
+      --primary: #4f8cff;
+      --accent: #22c55e;
+      --ring: #80aaff;
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    [data-theme="light"]{
+      --bg: #f7f9fc;
+      --panel: #ffffff;
+      --text: #0b1020;
+      --muted: #55607a;
+      --primary: #2563eb;
+      --accent: #16a34a;
+      --ring: #93c5fd;
+      --shadow: 0 10px 30px rgba(2,6,23,.08);
+    }
+
+    /* --- Base --- */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font:16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:var(--bg); color:var(--text);
+    }
+    a{color:var(--primary); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px; margin-inline:auto; padding:24px}
+
+    /* --- Header --- */
+    header{position:sticky; top:0; backdrop-filter:saturate(1.2) blur(8px); background:color-mix(in oklab, var(--bg) 80%, transparent); border-bottom:1px solid color-mix(in oklab, var(--text) 12%, transparent);}
+    .bar{display:flex; gap:12px; align-items:center; justify-content:space-between; padding-block:12px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700}
+    .logo{width:28px; aspect-ratio:1/1; border-radius:8px; background:linear-gradient(135deg, var(--primary), var(--accent)); box-shadow:var(--shadow)}
+    .nav{display:flex; gap:14px}
+    .nav a{padding:8px 10px; border-radius:10px}
+    .nav a:hover{background:color-mix(in oklab, var(--panel) 88%, transparent)}
+
+    /* --- Hero --- */
+    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:center; padding-block:40px}
+    .panel{background:var(--panel); border:1px solid color-mix(in oklab, var(--text) 10%, transparent); border-radius:18px; padding:24px; box-shadow:var(--shadow)}
+    .hero h1{font-size:clamp(28px, 4vw, 40px); line-height:1.2; margin:0 0 10px}
+    .hero p{margin:0 0 18px; color:var(--muted)}
+    .actions{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{appearance:none; border:1px solid transparent; padding:10px 14px; border-radius:12px; font-weight:600; cursor:pointer}
+    .btn.primary{background:var(--primary); color:#fff; box-shadow:var(--shadow)}
+    .btn.ghost{background:transparent; border-color:color-mix(in oklab, var(--text) 18%, transparent); color:var(--text)}
+    .btn:focus{outline:3px solid var(--ring); outline-offset:2px}
+
+    .preview{aspect-ratio:4/3; border-radius:16px; background:repeating-linear-gradient(135deg, color-mix(in oklab, var(--panel) 80%, transparent) 0 12px, transparent 12px 24px); border:1px dashed color-mix(in oklab, var(--text) 16%, transparent); display:grid; place-items:center; color:var(--muted); font-weight:600}
+
+    /* --- Features --- */
+    .features{display:grid; gap:18px; grid-template-columns:repeat(3, 1fr)}
+    .card{background:var(--panel); border:1px solid color-mix(in oklab, var(--text) 10%, transparent); border-radius:16px; padding:18px; box-shadow:var(--shadow)}
+    .card h3{margin:0 0 6px; font-size:18px}
+    .tag{display:inline-block; font-size:12px; padding:4px 8px; border-radius:999px; border:1px solid color-mix(in oklab, var(--text) 16%, transparent); color:var(--muted)}
+
+    /* --- Footer --- */
+    footer{padding-block:30px; color:var(--muted); text-align:center}
+
+    /* --- Responsive --- */
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .features{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container bar">
+      <div class="brand"><span class="logo" aria-hidden="true"></span> Starter</div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <button class="btn ghost" id="themeToggle" aria-pressed="false" title="Toggle theme">Toggle Theme</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="panel">
+        <h1>Clean, single‑file starter</h1>
+        <p>A minimal HTML template with modern semantics, responsive layout, accessible controls, and zero external dependencies.</p>
+        <div class="actions">
+          <a class="btn primary" href="#features">Get Started</a>
+          <a class="btn ghost" href="#about">Learn More</a>
+        </div>
+      </div>
+      <div class="preview panel">Your content preview</div>
+    </section>
+
+    <section id="features" class="features">
+      <article class="card">
+        <h3>Responsive</h3>
+        <p>Works across phones, tablets, and desktops with a simple grid.</p>
+        <span class="tag">No framework</span>
+      </article>
+      <article class="card">
+        <h3>Accessible</h3>
+        <p>Keyboard‑friendly buttons and focus styles out of the box.</p>
+        <span class="tag">A11y</span>
+      </article>
+      <article class="card">
+        <h3>Customizable</h3>
+        <p>Tweak design tokens to match your brand in seconds.</p>
+        <span class="tag">Design tokens</span>
+      </article>
+    </section>
+
+    <section id="about" class="panel" style="margin-top:24px">
+      <h2 style="margin:0 0 8px">About this file</h2>
+      <p style="margin:0">Everything you see is in this one file: HTML, CSS, and a tiny bit of JavaScript for theme toggling.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Built with ❤ — edit & reuse freely.</div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const btn = document.getElementById('themeToggle');
+    btn.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      btn.setAttribute('aria-pressed', String(next === 'dark'));
+    });
+  </script>
+</body>
+</html>
