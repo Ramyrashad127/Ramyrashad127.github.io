@@ -1,145 +1,421 @@
-<!doctype html>
-<html lang="en" data-theme="light">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Starter HTML Page</title>
-  <meta name="description" content="A clean, single-file HTML starter you can customize." />
-  <style>
-    /* --- Design tokens --- */
-    :root{
-      --bg: #0b1020;
-      --panel: #121a33;
-      --text: #e8ecf1;
-      --muted: #a9b2c6;
-      --primary: #4f8cff;
-      --accent: #22c55e;
-      --ring: #80aaff;
-      --shadow: 0 10px 30px rgba(0,0,0,.25);
-    }
-    [data-theme="light"]{
-      --bg: #f7f9fc;
-      --panel: #ffffff;
-      --text: #0b1020;
-      --muted: #55607a;
-      --primary: #2563eb;
-      --accent: #16a34a;
-      --ring: #93c5fd;
-      --shadow: 0 10px 30px rgba(2,6,23,.08);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramy Rashad | Full-Stack .NET Engineer & Founder</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    /* --- Base --- */
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font:16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background:var(--bg); color:var(--text);
-    }
-    a{color:var(--primary); text-decoration:none}
-    a:hover{text-decoration:underline}
-    .container{max-width:1100px; margin-inline:auto; padding:24px}
-
-    /* --- Header --- */
-    header{position:sticky; top:0; backdrop-filter:saturate(1.2) blur(8px); background:color-mix(in oklab, var(--bg) 80%, transparent); border-bottom:1px solid color-mix(in oklab, var(--text) 12%, transparent);}
-    .bar{display:flex; gap:12px; align-items:center; justify-content:space-between; padding-block:12px}
-    .brand{display:flex; align-items:center; gap:10px; font-weight:700}
-    .logo{width:28px; aspect-ratio:1/1; border-radius:8px; background:linear-gradient(135deg, var(--primary), var(--accent)); box-shadow:var(--shadow)}
-    .nav{display:flex; gap:14px}
-    .nav a{padding:8px 10px; border-radius:10px}
-    .nav a:hover{background:color-mix(in oklab, var(--panel) 88%, transparent)}
-
-    /* --- Hero --- */
-    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:center; padding-block:40px}
-    .panel{background:var(--panel); border:1px solid color-mix(in oklab, var(--text) 10%, transparent); border-radius:18px; padding:24px; box-shadow:var(--shadow)}
-    .hero h1{font-size:clamp(28px, 4vw, 40px); line-height:1.2; margin:0 0 10px}
-    .hero p{margin:0 0 18px; color:var(--muted)}
-    .actions{display:flex; gap:10px; flex-wrap:wrap}
-    .btn{appearance:none; border:1px solid transparent; padding:10px 14px; border-radius:12px; font-weight:600; cursor:pointer}
-    .btn.primary{background:var(--primary); color:#fff; box-shadow:var(--shadow)}
-    .btn.ghost{background:transparent; border-color:color-mix(in oklab, var(--text) 18%, transparent); color:var(--text)}
-    .btn:focus{outline:3px solid var(--ring); outline-offset:2px}
-
-    .preview{aspect-ratio:4/3; border-radius:16px; background:repeating-linear-gradient(135deg, color-mix(in oklab, var(--panel) 80%, transparent) 0 12px, transparent 12px 24px); border:1px dashed color-mix(in oklab, var(--text) 16%, transparent); display:grid; place-items:center; color:var(--muted); font-weight:600}
-
-    /* --- Features --- */
-    .features{display:grid; gap:18px; grid-template-columns:repeat(3, 1fr)}
-    .card{background:var(--panel); border:1px solid color-mix(in oklab, var(--text) 10%, transparent); border-radius:16px; padding:18px; box-shadow:var(--shadow)}
-    .card h3{margin:0 0 6px; font-size:18px}
-    .tag{display:inline-block; font-size:12px; padding:4px 8px; border-radius:999px; border:1px solid color-mix(in oklab, var(--text) 16%, transparent); color:var(--muted)}
-
-    /* --- Footer --- */
-    footer{padding-block:30px; color:var(--muted); text-align:center}
-
-    /* --- Responsive --- */
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
-      .features{grid-template-columns:1fr}
-    }
-  </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        heading: ['"Outfit"', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#3B82F6', // Blue 500
+                        secondary: '#0F172A', // Slate 900
+                        accent: '#06B6D4', // Cyan 500
+                        darkbg: '#020617', // Slate 950
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(to right, #60A5FA, #22D3EE);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hero-image-container {
+            position: relative;
+        }
+        .hero-image-container::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(45deg, #3B82F6, #06B6D4);
+            border-radius: 1rem;
+            z-index: -1;
+            filter: blur(10px);
+            opacity: 0.7;
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <div class="container bar">
-      <div class="brand"><span class="logo" aria-hidden="true"></span> Starter</div>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#features">Features</a>
-        <a href="#about">About</a>
-        <button class="btn ghost" id="themeToggle" aria-pressed="false" title="Toggle theme">Toggle Theme</button>
-      </nav>
-    </div>
-  </header>
+<body class="bg-darkbg text-slate-300 font-sans antialiased selection:bg-primary selection:text-white">
 
-  <main class="container">
-    <section class="hero">
-      <div class="panel">
-        <h1>Clean, single‑file starter</h1>
-        <p>A minimal HTML template with modern semantics, responsive layout, accessible controls, and zero external dependencies.</p>
-        <div class="actions">
-          <a class="btn primary" href="#features">Get Started</a>
-          <a class="btn ghost" href="#about">Learn More</a>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-secondary/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="font-heading font-bold text-2xl text-white tracking-tight">Ramy<span class="text-primary">.dev</span></a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="hover:text-primary transition-colors">About</a>
+                    <a href="#services" class="hover:text-primary transition-colors">Services</a>
+                    <a href="#experience" class="hover:text-primary transition-colors">Journey</a>
+                    <a href="#projects" class="hover:text-primary transition-colors">Projects</a>
+                    <a href="#contact" class="px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-white transition-all">Let's Talk</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
-      </div>
-      <div class="preview panel">Your content preview</div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-secondary border-t border-slate-800">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="#about" class="block py-2 hover:text-primary transition-colors">About</a>
+                <a href="#services" class="block py-2 hover:text-primary transition-colors">Services</a>
+                <a href="#experience" class="block py-2 hover:text-primary transition-colors">Journey</a>
+                <a href="#projects" class="block py-2 hover:text-primary transition-colors">Projects</a>
+                <a href="#contact" class="block py-2 text-primary hover:text-white transition-colors">Let's Talk</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="space-y-6 animate-fade-in-up">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-sm text-primary font-medium">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                        </span>
+                        <span>Open for Startup Collaborations</span>
+                    </div>
+                    
+                    <h1 class="font-heading text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight">
+                        I Build <span class="gradient-text">Scalable Tech</span> for Startups.
+                    </h1>
+                    
+                    <p class="text-base sm:text-lg text-slate-400 max-w-xl">
+                        I am Ramy Rashad. An Expert Full-Stack .NET Engineer & Co-founder. I bridge the gap between complex code and business growth.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="#contact" class="inline-flex justify-center items-center px-8 py-3.5 text-base font-semibold text-white bg-primary rounded-lg hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/25">
+                            Hire Me
+                            <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#projects" class="inline-flex justify-center items-center px-8 py-3.5 text-base font-semibold text-slate-300 bg-slate-800 border border-slate-700 rounded-lg hover:bg-slate-700 transition-all">
+                            View Portfolio
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="relative flex justify-center lg:justify-end">
+                    <div class="hero-image-container w-72 h-72 sm:w-96 sm:h-96 rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="Ramy.jpg" alt="Ramy Rashad" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <!-- Floater Card -->
+                    <div class="absolute -bottom-6 -left-6 sm:left-0 bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-xl flex items-center gap-3 animate-bounce" style="animation-duration: 3s;">
+                        <div class="bg-green-500/20 p-2 rounded-full text-green-400">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400">Availability</p>
+                            <p class="text-sm font-bold text-white">Accepting New Projects</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Background Elements -->
+        <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[500px] h-[500px] bg-primary/10 blur-[100px] rounded-full"></div>
+        <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-accent/10 blur-[100px] rounded-full"></div>
     </section>
 
-    <section id="features" class="features">
-      <article class="card">
-        <h3>Responsive</h3>
-        <p>Works across phones, tablets, and desktops with a simple grid.</p>
-        <span class="tag">No framework</span>
-      </article>
-      <article class="card">
-        <h3>Accessible</h3>
-        <p>Keyboard‑friendly buttons and focus styles out of the box.</p>
-        <span class="tag">A11y</span>
-      </article>
-      <article class="card">
-        <h3>Customizable</h3>
-        <p>Tweak design tokens to match your brand in seconds.</p>
-        <span class="tag">Design tokens</span>
-      </article>
+    <!-- About / The USP Section -->
+    <section id="about" class="py-20 bg-secondary">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 sm:mb-8">Not Just a Developer. A <span class="text-primary">Technical Partner.</span></h2>
+            
+            <div class="glass-card p-6 sm:p-8 md:p-12 rounded-2xl shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10">
+                    <i class="fa-solid fa-chess-queen text-9xl text-white"></i>
+                </div>
+                
+                <p class="text-base sm:text-lg md:text-xl leading-relaxed text-slate-300">
+                    I am a high-performance <span class="text-white font-semibold">.NET Engineer</span> dedicated to building efficient, scalable architectures specifically for startups. 
+                    <br><br>
+                    But I deliver more than just clean code. Drawing from my experience as a <span class="text-accent font-bold">Co-founder and Tech Lead</span>, I bridge the gap between development and strategy. 
+                    <br><br>
+                    I don't just build your product; I provide the <span class="text-white font-semibold border-b-2 border-primary">business advisory and market insights</span> needed to ensure your startup solves real problems and scales successfully.
+                </p>
+            </div>
+        </div>
     </section>
 
-    <section id="about" class="panel" style="margin-top:24px">
-      <h2 style="margin:0 0 8px">About this file</h2>
-      <p style="margin:0">Everything you see is in this one file: HTML, CSS, and a tiny bit of JavaScript for theme toggling.</p>
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-darkbg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="font-heading text-2xl sm:text-3xl font-bold text-white">How I Accelerate Your Business</h2>
+                <p class="text-sm sm:text-base text-slate-400 mt-3 sm:mt-4">Full-cycle development from idea to deployment.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                <!-- Service 1 -->
+                <div class="p-6 rounded-xl bg-slate-900 border border-slate-800 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                        <i class="fa-solid fa-code text-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Web Development</h3>
+                    <p class="text-sm text-slate-400">Building robust, high-performance websites using the latest .NET technologies tailored for your users.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="p-6 rounded-xl bg-slate-900 border border-slate-800 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-500/20 transition-colors">
+                        <i class="fa-solid fa-server text-xl text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">RESTful APIs</h3>
+                    <p class="text-sm text-slate-400">Architecting secure and scalable APIs that serve as the backbone for your mobile and web applications.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="p-6 rounded-xl bg-slate-900 border border-slate-800 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-500/20 transition-colors">
+                        <i class="fa-solid fa-cloud text-xl text-green-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Hosting & DevOps</h3>
+                    <p class="text-sm text-slate-400">Providing deployment solutions and VPS management (GCP, Linux) to keep your apps running 24/7.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="p-6 rounded-xl bg-slate-900 border border-slate-800 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                        <i class="fa-solid fa-chart-line text-xl text-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Business Advisory</h3>
+                    <p class="text-sm text-slate-400">Consulting on product roadmap, feasibility, and tech strategy to save you time and money.</p>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="container">Built with ❤ — edit & reuse freely.</div>
-  </footer>
+    <!-- Skills Section -->
+    <section class="py-16 border-t border-slate-800 bg-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="font-heading text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8 text-center">Technical Arsenal</h3>
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
+                <!-- Skill Badges -->
+                <span class="px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-lg bg-slate-800 text-slate-300 border border-slate-700 font-medium"><i class="fa-brands fa-microsoft text-blue-400 mr-1 sm:mr-2"></i>.NET Core</span>
+                <span class="px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-lg bg-slate-800 text-slate-300 border border-slate-700 font-medium">ASP.NET Core</span>
+                <span class="px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-lg bg-slate-800 text-slate-300 border border-slate-700 font-medium">C#</span>
+                <span class="px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-lg bg-slate-800 text-slate-300 border border-slate-700 font-medium">Entity Framework</span>
+                <span class="px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-lg bg-slate-800 text-slate-300 border border-slate-700 font-medium"><i class="fa-solid fa-database text-yellow-500 mr-1 sm:mr-2"></i>SQL Server</span>
+                <span class="px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-lg bg-slate-800 text-slate-300 border border-slate-700 font-medium">PostgreSQL</span>
+                <span class="px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-lg bg-slate-800 text-slate-300 border border-slate-700 font-medium"><i class="fa-brands fa-docker text-blue-500 mr-1 sm:mr-2"></i>Docker</span>
+                <span class="px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-lg bg-slate-800 text-slate-300 border border-slate-700 font-medium">GCP (Google Cloud)</span>
+                <span class="px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-lg bg-slate-800 text-slate-300 border border-slate-700 font-medium">OOP & SOLID</span>
+                <span class="px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-lg bg-slate-800 text-slate-300 border border-slate-700 font-medium">HTML5 & CSS3</span>
+                <span class="px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-lg bg-slate-800 text-slate-300 border border-slate-700 font-medium">JavaScript</span>
+            </div>
+        </div>
+    </section>
 
-  <script>
-    const root = document.documentElement;
-    const btn = document.getElementById('themeToggle');
-    btn.addEventListener('click', () => {
-      const current = root.getAttribute('data-theme');
-      const next = current === 'light' ? 'dark' : 'light';
-      root.setAttribute('data-theme', next);
-      btn.setAttribute('aria-pressed', String(next === 'dark'));
-    });
-  </script>
+    <!-- Experience & Journey -->
+    <section id="experience" class="py-20 bg-darkbg">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <h2 class="font-heading text-2xl sm:text-3xl font-bold text-white mb-8 sm:mb-12 text-center">My Journey</h2>
+            
+            <div class="relative border-l border-slate-700 ml-2 sm:ml-3 md:ml-6 space-y-8 sm:space-y-12">
+                
+                <!-- Experience Item 1 -->
+                <div class="relative pl-6 sm:pl-8 md:pl-12">
+                    <div class="absolute -left-[9px] top-0 h-5 w-5 rounded-full border-4 border-darkbg bg-accent"></div>
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                        <h3 class="text-lg sm:text-xl font-bold text-white">Co-Founder & Tech Lead</h3>
+                        <span class="text-xs sm:text-sm font-medium text-slate-400 bg-slate-800 px-2 sm:px-3 py-1 rounded-full mt-1 sm:mt-0">Jan 2025 - Present</span>
+                    </div>
+                    <h4 class="text-primary font-medium mb-3">SoftAware Startup</h4>
+                    <p class="text-slate-400">Leading the technical vision, managing freelance teams, and ensuring architectural scalability. This is where I merge code with business strategy.</p>
+                </div>
+
+                <!-- Education Item 1 -->
+                <div class="relative pl-6 sm:pl-8 md:pl-12">
+                    <div class="absolute -left-[9px] top-0 h-5 w-5 rounded-full border-4 border-darkbg bg-primary"></div>
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                        <h3 class="text-lg sm:text-xl font-bold text-white">Full-Stack .NET Trainee</h3>
+                        <span class="text-xs sm:text-sm font-medium text-slate-400 bg-slate-800 px-2 sm:px-3 py-1 rounded-full mt-1 sm:mt-0">Dec 2025 - May 2026</span>
+                    </div>
+                    <h4 class="text-primary font-medium mb-3">Digital Egypt Pioneers Initiative (DEPI)</h4>
+                    <p class="text-slate-400">Intensive enterprise-grade training focusing on Clean Architecture, Advanced API design, and best practices in the .NET ecosystem.</p>
+                </div>
+
+                <!-- Education Item 2 -->
+                <div class="relative pl-6 sm:pl-8 md:pl-12">
+                    <div class="absolute -left-[9px] top-0 h-5 w-5 rounded-full border-4 border-darkbg bg-slate-600"></div>
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                        <h3 class="text-lg sm:text-xl font-bold text-white">B.Sc. Communication & Electronics Engineering</h3>
+                        <span class="text-xs sm:text-sm font-medium text-slate-400 bg-slate-800 px-2 sm:px-3 py-1 rounded-full mt-1 sm:mt-0">Class of 2026</span>
+                    </div>
+                    <h4 class="text-primary font-medium mb-3">Port Said University</h4>
+                    <p class="text-slate-400">Strong foundation in logical problem solving, algorithms, and system design.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-heading text-2xl sm:text-3xl font-bold text-white mb-8 sm:mb-12 text-center">Featured Project</h2>
+            
+            <div class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-2xl">
+                <div class="grid lg:grid-cols-2">
+                    
+                    <!-- Images Gallery -->
+                    <div class="p-6 bg-slate-800/50 flex flex-col gap-4">
+                        <div class="relative group rounded-xl overflow-hidden border border-slate-700">
+                             <!-- Main Showcase Image -->
+                            <img src="Agames.webp" alt="AGames Showcase" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="rounded-lg overflow-hidden border border-slate-700">
+                                <img src="Agames(1).webp" alt="AGames Detail" class="w-full h-full object-cover">
+                            </div>
+                            <div class="rounded-lg overflow-hidden border border-slate-700">
+                                <img src="unnamed.webp" alt="AGames Detail" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Info -->
+                    <div class="p-6 sm:p-8 lg:p-12 flex flex-col justify-center">
+                        <div class="mb-3 sm:mb-4">
+                            <span class="text-accent text-xs sm:text-sm font-bold tracking-wider uppercase">Mobile App Backend</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">AGames App</h3>
+                        <p class="text-sm sm:text-base text-slate-400 mb-4 sm:mb-6 leading-relaxed">
+                            A complete gaming marketplace solution. I engineered the robust **RESTful API** and developed a comprehensive **Dashboard** to manage game data, user requests, and system analytics. 
+                        </p>
+                        
+                        <div class="mb-8">
+                            <h4 class="text-white font-medium mb-3">Key Technologies:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs font-semibold px-2 py-1 bg-slate-800 text-blue-400 rounded">ASP.NET Core API</span>
+                                <span class="text-xs font-semibold px-2 py-1 bg-slate-800 text-blue-400 rounded">SQL Server</span>
+                                <span class="text-xs font-semibold px-2 py-1 bg-slate-800 text-blue-400 rounded">Dashboard UI</span>
+                            </div>
+                        </div>
+
+                        <a href="https://play.google.com/store/apps/details?id=com.agames.play" target="_blank" class="inline-flex items-center justify-center w-full sm:w-auto px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg transition-all shadow-lg shadow-green-900/20">
+                            <i class="fa-brands fa-google-play mr-2 text-xl"></i>
+                            Download on Play Store
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="py-16 bg-gradient-to-br from-primary/10 to-secondary border-y border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            <div class="inline-block p-3 sm:p-4 rounded-full bg-yellow-500/20 mb-4 sm:mb-6">
+                <i class="fa-solid fa-trophy text-3xl sm:text-4xl text-yellow-500"></i>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">1st Place Winner - Code Masters Hackathon</h2>
+            <p class="text-lg text-slate-300">
+                Creativa Port Said
+            </p>
+            <p class="mt-4 text-slate-400 max-w-2xl mx-auto">
+                Awarded for building a startup concept with my team. This victory wasn't just about code; it was about validating a business idea, executing under pressure, and pitching a viable product.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-darkbg">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">Ready to Build Your Startup?</h2>
+            <p class="text-slate-400 text-base sm:text-lg mb-6 sm:mb-10">
+                Whether you need a technical audit, a scalable MVP, or a full-stack partner, I am ready to help you grow.
+            </p>
+
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+                <a href="mailto:eng.ramymohamedrashad@gmail.com" class="p-4 sm:p-6 bg-slate-900 rounded-xl border border-slate-800 hover:border-primary group transition-all">
+                    <div class="w-10 h-10 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-envelope text-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-white font-semibold">Email Me</h3>
+                    <p class="text-xs text-slate-500 mt-1 truncate">eng.ramymohamedrashad@gmail.com</p>
+                </a>
+
+                <a href="https://www.linkedin.com/in/ramy-rashad-952012281/" target="_blank" class="p-6 bg-slate-900 rounded-xl border border-slate-800 hover:border-primary group transition-all">
+                    <div class="w-10 h-10 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <i class="fa-brands fa-linkedin-in text-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-white font-semibold">LinkedIn</h3>
+                    <p class="text-xs text-slate-500 mt-1">Connect professionally</p>
+                </a>
+
+                <a href="tel:+201062667099" class="p-6 bg-slate-900 rounded-xl border border-slate-800 hover:border-primary group transition-all">
+                    <div class="w-10 h-10 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-3 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-phone text-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-white font-semibold">Call Me</h3>
+                    <p class="text-xs text-slate-500 mt-1">+20 106 266 7099</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 sm:py-8 bg-black border-t border-slate-900 text-center">
+        <p class="text-slate-600 text-xs sm:text-sm px-4">
+            &copy; 2026 Ramy Rashad. All rights reserved. <br>
+            <span class="text-xs">Built with precision and .NET principles.</span>
+        </p>
+    </footer>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+
 </body>
 </html>
-
